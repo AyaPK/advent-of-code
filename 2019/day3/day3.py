@@ -36,18 +36,18 @@ with open("input2.txt", "r") as f:
 for inst in ins:
     plotpoints(inst, arr2)
 
-print(arr)
-print(arr2)
+
+print(len(arr))
+print(len(arr2))
 
 matches = []
 
 iterations = 0
-for a in arr:
-    if a not in (matches):
-        for b in arr2:
-            if b not in (matches):
-                if a == b:
-                    matches.append(a)
-                    iterations += 1
-                    print(iterations)
+
+for a in range(0, len(arr)):
+    for b in range(0, len(arr2)):
+        if arr[a] == arr2[b]:
+            print(arr2[b])
+
+
 print(matches)
