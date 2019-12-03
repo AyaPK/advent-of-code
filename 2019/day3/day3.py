@@ -5,8 +5,10 @@ stepcount = 0
 
 x, y = 0, 0
 
+
 def findclosest(a):
-    return abs(a[0])+abs(a[1])
+    return abs(a[0]) + abs(a[1])
+
 
 with open("input.txt", "r") as f:
     instruct = f.read().split(",")

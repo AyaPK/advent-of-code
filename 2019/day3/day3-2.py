@@ -6,11 +6,14 @@ stepcount = 0
 
 x, y = 0, 0
 
+
 def findclosest(a):
-    return abs(a[0])+abs(a[1])
+    return abs(a[0]) + abs(a[1])
+
 
 def findclosesttwo(a):
-    return stepdictx[a]+stepdicty[a]
+    return stepdictx[a] + stepdicty[a]
+
 
 with open("input.txt", "r") as f:
     instruct = f.read().split(",")
@@ -21,7 +24,7 @@ for a in range(len(instruct)):
         stepcount += 1
         if dir == "R":
             x += 1
-            stepdictx[(x,y)] = stepcount
+            stepdictx[(x, y)] = stepcount
         elif dir == "L":
             x -= 1
             stepdictx[(x, y)] = stepcount
@@ -58,6 +61,5 @@ for a in range(len(instruct)):
 
 nodes = set1.intersection(set2)
 
-
-print("CLOSEST BY STEP MANHATTAN: ",min(findclosest(a) for a in nodes))
-print("CLOSEST BY STEP COUNT: ",min(findclosesttwo(a) for a in nodes))
+print("CLOSEST BY MANHATTAN: ", min(findclosest(a) for a in nodes))
+print("CLOSEST BY STEP COUNT: ", min(findclosesttwo(a) for a in nodes))
