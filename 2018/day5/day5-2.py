@@ -24,6 +24,7 @@ def parse(input, rem1, rem2):
                     notfound = True
                     parsed += 1
                     break
+        print(parsed)
     print(output)
     print(len(output))
     arr.append([rem2, len(output)])
