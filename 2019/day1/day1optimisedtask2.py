@@ -10,3 +10,4 @@ def calc(fuel):
 
 with open("input.txt", "r") as f:
     print(sum(calc(int(module)) for module in f.readlines()))
+
