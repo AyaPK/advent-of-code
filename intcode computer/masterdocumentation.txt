@@ -1,0 +1,26 @@
+opcode 1, three parameters.
+Adds parameter 1 to parameter 2, saving it to address parameter 3.
+
+opcode 2, three parameters.
+Multiplies parameter 1 by parameter 2, saving it to address parameter 3.
+
+opcode 3, one parameter.
+Requests an input, adds that input to address parameter 1
+
+opcode 4, one parameter.
+Outputs the value at address parameter 1.
+
+opcode 5, two parameters.
+If parameter one does not equal zero, instruction pointer jumps to memory address of parameter 2.
+
+opcode 6, two parameters.
+If parameter 1 equals zero, instruction pointer jumps to memory address of value 2.
+
+opcode 7, three parameters.
+If parameter 1 is less than parameter 2, set address of parameter three to value 1, otherwise set to 0.
+
+opcode 8, three parameters.
+If parameter 1 equals parameter 2, set value of address parameter 3 to 1, otherwise set it to 0.
+
+opcode 9, one parameter.
+Add value at address parameter 1 to the value of the global base parameter.
