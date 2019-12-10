@@ -1,13 +1,18 @@
-arr = []
+arr = {}
 with open("input.txt", "r") as f:
     data = f.read().split(",")
+    xy = 0
     for d in data:
-        arr.append(int(d))
+        arr[xy] = int(d)
+        xy += 1
 
+print(len(arr))
 input = int(input("> "))
+relativebase = 0
 def calc():
     global input
     global arr
+    global relativebase
     x = 0
     while True:
         if len(str(arr[x])) <= 2:
@@ -22,13 +27,13 @@ def calc():
                 print("diagnostic ",arr[dir])
                 x += step
             elif str(arr[x]) == "5":
-                dir1, dir2, dir3 = arr[x+1], arr[x+2]
+                dir1, dir2 = arr[x+1], arr[x+2]
                 if arr[dir1] != 0:
                     x = arr[dir2]
                 else:
                     x += 3
             elif str(arr[x]) == "6":
-                dir1, dir2, dir3 = arr[x + 1], arr[x + 2]
+                dir1, dir2 = arr[x + 1], arr[x + 2]
                 if arr[dir1] == 0:
                     x = arr[dir2]
                 else:
@@ -63,6 +68,9 @@ def calc():
                 arr[outdir] = arr[dir1] * arr[dir2]
 
                 x += step
+            elif arr[x] == 9:
+                relativebase += arr[x+1]
+                x += 2
             elif arr[x] == 99:
                 if arr[0] == 19690720:
                     print("found")
@@ -73,14 +81,18 @@ def calc():
             code = str(arr[x])
             opcode = int(code[-2:])
             inst1 = int(code[-3:-2])
-            if inst1 == 0:
+            if inst1 == 2:
+                inst1 = arr[inst1+relativebase]
+            elif inst1 == 0:
                 inst1 = arr[x+1]
                 inst1 = arr[inst1]
             else:
                 inst1 = arr[x+1]
             if len(str(code)) > 3:
                 inst2 = int(code[-4:-3])
-                if inst2 == 0:
+                if inst2 == 2:
+                    inst1 = arr[inst2 + relativebase]
+                elif inst2 == 0:
                     inst2 = arr[x+2]
                     inst2 = arr[inst2]
                 else:
@@ -100,7 +112,7 @@ def calc():
                 x += step
             if opcode == 2:
                 step = 4
-                arr[outdir] = inst1*inst2
+                arr[outdir] = int(inst1)*int(inst2)
                 x += step
             if opcode == 4:
                 step = 2
@@ -128,6 +140,9 @@ def calc():
                 else:
                     arr[outdir] = 0
                 x += 4
+            if opcode == 9:
+                relativebase = arr[inst1]
+                x += 2
         else:
             break
 calc()
