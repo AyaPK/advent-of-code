@@ -4,6 +4,7 @@ from collections import defaultdict
 memory = defaultdict(int)
 basememoryvalue = 0
 instructionPointer = 0
+instructionPointer = 0
 
 def importarray(param):
     global memory
@@ -109,7 +110,6 @@ def runprogram(input):
     global memory
     global instructionPointer
     global basememoryvalue
-    instructionPointer = 0
     step = 1
     output = 0
     while True:
@@ -158,13 +158,17 @@ def runprogram(input):
             instructionPointer += 2
         elif opcode == 99:
             print(f"final output: {output}")
-            break
-
-
+            return (output, memory, instructionPointer)
 
 
 def compute(input, program):
     importarray(program)
-    runprogram(input)
-importarray("input.txt")
-runprogram(0)
+    return runprogram(input)
+
+
+def computewithgivenmemory(input, program, pointer):
+    global memory
+    global instructionPointer
+    memory = program
+    instructionPointer = pointer
+    return runprogram(input)
