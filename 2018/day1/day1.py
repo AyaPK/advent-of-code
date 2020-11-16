@@ -25,13 +25,13 @@ with open("input.txt", "r") as f:
     for x in data:
         arr.append(x.replace("\n", ""))
 
-while not found:
-    for x in arr:
-        calc(x[0], int(x[1:]))
-    checks += 1
-    if checks % 25 == 0:
-        print(results)
-    print(checks)
+# while not found:
+#     for x in arr:
+#         calc(x[0], int(x[1:]))
+#     checks += 1
+#     if checks % 25 == 0:
+#         print(results)
+#     print(checks)
 
 print(output)
 print(results)
