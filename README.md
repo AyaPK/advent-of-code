@@ -10,3 +10,5 @@ Read my blog detailing my journey in to the 2020 Advent of Code challenges:
 [Advent of Code | 2020 | Day 3 - Literal and Figurative Headaches](https://scarletbyte.wordpress.com/2020/12/03/aoc-2020-day3/)
 
 [Advent of Code | 2020 | Day 4 - For the good of the many](https://scarletbyte.wordpress.com/2020/12/04/aoc-2020-day4/)
+
+[Advent of Code | 2020 | Day 5 - There's an app for that](https://scarletbyte.wordpress.com/2020/12/05/aoc-2020-day5/)
