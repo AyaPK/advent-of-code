@@ -12,3 +12,5 @@ Read my blog detailing my journey in to the 2020 Advent of Code challenges:
 [Advent of Code | 2020 | Day 4 - For the good of the many](https://scarletbyte.wordpress.com/2020/12/04/aoc-2020-day4/)
 
 [Advent of Code | 2020 | Day 5 - There's an app for that](https://scarletbyte.wordpress.com/2020/12/05/aoc-2020-day5/)
+
+[Advent of Code | 2020 | Day 6 - Mysterious New Arrivals](https://scarletbyte.wordpress.com/2020/12/06/aoc-2020-day6/)
