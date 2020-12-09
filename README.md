@@ -16,3 +16,5 @@ Read my blog detailing my journey in to the 2020 Advent of Code challenges:
 [Advent of Code | 2020 | Day 6 - Mysterious New Arrivals](https://scarletbyte.wordpress.com/2020/12/06/aoc-2020-day6/)
 
 [Advent of Code | 2020 | Day 7 - Topologically Impossible](https://scarletbyte.wordpress.com/2020/12/07/aoc-2020-day7/)
+
+[Advent of Code | 2020 | Day 8 - IntCode Flashbacks](https://scarletbyte.wordpress.com/2020/12/08/aoc-2020-day8/)

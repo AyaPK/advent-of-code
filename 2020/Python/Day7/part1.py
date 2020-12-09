@@ -32,3 +32,4 @@ while found:
     for x in shiny_gold_parents:
         find_containers(x)
 print(len(shiny_gold_parents))
+
