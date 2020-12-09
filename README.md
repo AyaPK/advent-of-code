@@ -18,3 +18,5 @@ Read my blog detailing my journey in to the 2020 Advent of Code challenges:
 [Advent of Code | 2020 | Day 7 - Topologically Impossible](https://scarletbyte.wordpress.com/2020/12/07/aoc-2020-day7/)
 
 [Advent of Code | 2020 | Day 8 - IntCode Flashbacks](https://scarletbyte.wordpress.com/2020/12/08/aoc-2020-day8/)
+
+[Advent of Code | 2020 | Day 9 - Start from 1 please...](https://scarletbyte.wordpress.com/2020/12/09/aoc-2020-day9/)
