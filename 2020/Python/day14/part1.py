@@ -1,5 +1,5 @@
 instructions = [x.replace("\n", "") for x in open("input.txt", "r").readlines()]
-memory = [0]*1000000
+memory = {}
 mask = "X"*32
 
 
@@ -19,5 +19,8 @@ for i in instructions:
                 val_bin[x] = mask[x]
         val_bin = "".join(val_bin)
         memory[address] = int(val_bin, 2)
-print(sum(memory))
+output = 0
+for x in memory:
+    output += memory[x]
+print(output)
 
