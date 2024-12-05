@@ -4,7 +4,6 @@ rules_in, updates = input[:input.index("")], input[input.index("")+1:]
 rules = {}
 for before, after in (rule.split("|") for rule in rules_in):
     rules[before] = rules.get(before, []) + [after]
-print(rules)
 
 bads = {
     update
