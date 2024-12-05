@@ -1,54 +1,30 @@
+import re
 
-with open("input.txt", "r") as f:
-    data = f.readlines()
-
-count = 0
-foundIP = []
-minus = 0
-
-def checkForAbba(string):
-    for x in range(0, len(string)-3):
-        test = string[x:x+4]
-        if len(set(test)) == 2 and test == test[::-1]:
-            print(test)
+def has_abba(segment):
+    for i in range(len(segment) - 3):
+        if segment[i] != segment[i + 1] and segment[i:i + 2] == segment[i + 3:i + 1:-1]:
             return True
     return False
 
-stringpos = 0
-for line in data:
-    strings = []
-    hypernets = []
-    toadd = ""
-    mode = "string"
-    line = line.replace("\n","")
-    line = line+"["
-    for letter in line:
-        if letter not in "[]\n":
-            toadd = toadd+letter
-        else:
-            if mode == "string":
-                strings.append(toadd)
-                mode = "hypernets"
-                toadd = ""
-            else:
-                hypernets.append(toadd)
-                mode = "string"
-                toadd = ""
-    found = False
-    for string in strings:
-        if checkForAbba(string) and not found:
-            for hypernet in hypernets:
-                if not checkForAbba(hypernet) and not found:
-                    count += 1
-                    found = True
-                    foundIP.append(line)
-                    print(hypernets)
-                    break
-                else:
-                    minus += 1
-                    break
-            break
+def get_parts(file):
+    with open(file) as f:
+        content = f.read().splitlines()
+    processed = [re.split(r'\[|\]', line) for line in content]
+    return [(" ".join(parts[::2]), " ".join(parts[1::2])) for parts in processed]
 
-print(count-minus)
-# for i in foundIP:
-#     print(i)
+def supports_ssl(supernets, hypernets):
+    for supernet in supernets.split():
+        for i in range(len(supernet) - 2):
+            if supernet[i] == supernet[i + 2] != supernet[i + 1]:
+                aba = supernet[i:i + 3]
+                bab = aba[1] + aba[0] + aba[1]
+                if any(bab in hypernet for hypernet in hypernets.split()):
+                    return True
+    return False
+
+data = get_parts('input.txt')
+result_1 = sum(has_abba(supernets) and not has_abba(hypernets) for supernets, hypernets in data)
+result_2 = sum(supports_ssl(supernets, hypernets) for supernets, hypernets in data)
+
+print('Answer #1:', result_1)
+print('Answer #2:', result_2)
