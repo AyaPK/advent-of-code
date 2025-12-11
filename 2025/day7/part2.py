@@ -1,4 +1,3 @@
-# Load grid
 with open("input.txt") as f:
     grid = [list(line.rstrip("\n")) for line in f]
 
