@@ -1,14 +1,16 @@
-with open("input.txt", "r") as f:
-    data = f.readlines()
-    for x in range(len(data)):
-        data[x] = data[x].replace("\t", " ")
+data = [
+    [int(x) for x in row.strip().split()]
+    for row in open("input.txt")
+]
 
-arr = []
-for l in data:
-    line = l.replace("\n", "").split(" ")
-    for x in range(len(line)):
-        line[x] = int(line[x])
-    line.sort()
-    arr.append(abs(line[len(line)-1] - line[0]))
+print(sum(max(x)-min(x) for x in data))
 
-print(sum(arr))
+import itertools as ite
+
+out = sum(
+    pair[0] // pair[1]
+    for x in data
+    for pair in ite.permutations(x, 2)
+    if pair[0] % pair[1] == 0
+)
+print(int(out))

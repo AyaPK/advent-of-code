@@ -12,4 +12,5 @@ for line in data:
     if len(words) == len(set(words)):
         output+=1
 
+
 print(output)
